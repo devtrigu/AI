@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TriguAI</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-aurora">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+  </div>
+
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-name">Trigu<span class="brand-accent">AI</span></span>
+      </div>
+
+      <button class="btn-new" id="newChatBtn">
+        <span class="plus-icon" aria-hidden="true"></span>
+        Percakapan Baru
+      </button>
+
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true"></span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Cari percakapan..." autocomplete="off">
+      </div>
+
+      <div class="history-label">Riwayat</div>
+      <nav class="history-list" id="historyList"></nav>
+
+      <button class="btn-settings" id="settingsBtn">
+        <span class="gear-icon" aria-hidden="true"></span>
+        Pengaturan API
+      </button>
+    </aside>
+
+    <!-- Main chat panel -->
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn only-mobile" id="menuToggle" aria-label="Buka menu">
+          <span class="burger"></span>
+        </button>
+        <div class="topbar-title" id="chatTitle">Percakapan Baru</div>
+        <button class="icon-btn" id="deleteChatBtn" aria-label="Hapus percakapan">
+          <span class="trash-icon" aria-hidden="true"></span>
+        </button>
+      </header>
+
+      <section class="chat-area" id="chatArea">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-mark"></div>
+          <h1>TriguAI</h1>
+          <p>Asisten cerdas bertenaga Gemini. Mulai percakapan dengan mengetik pesan di bawah.</p>
+        </div>
+        <div class="messages" id="messages"></div>
+      </section>
+
+      <form class="composer" id="composerForm">
+        <div class="composer-glass">
+          <textarea id="promptInput" class="composer-input" placeholder="Tulis pesan untuk TriguAI..." rows="1"></textarea>
+          <button type="submit" class="btn-send" id="sendBtn" aria-label="Kirim pesan">
+            <span class="send-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="composer-hint">TriguAI dapat membuat kesalahan. Periksa kembali informasi penting.</div>
+      </form>
+    </main>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-glass">
+      <div class="modal-header">
+        <h2>Pengaturan API</h2>
+        <button class="icon-btn" id="closeModalBtn" aria-label="Tutup">
+          <span class="close-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <p class="modal-desc">Masukkan Gemini API Key kamu. Key disimpan hanya di local storage browser ini, tidak dikirim ke server manapun selain Google.</p>
+      <label class="field-label" for="apiKeyInput">Gemini API Key</label>
+      <input type="password" id="apiKeyInput" class="field-input" placeholder="AIza...">
+      <label class="field-label" for="modelSelect">Model</label>
+      <select id="modelSelect" class="field-input">
+        <option value="gemini-2.0-flash">gemini-2.0-flash</option>
+        <option value="gemini-2.0-flash-lite">gemini-2.0-flash-lite</option>
+        <option value="gemini-1.5-flash">gemini-1.5-flash</option>
+        <option value="gemini-1.5-pro">gemini-1.5-pro</option>
+      </select>
+      <button class="btn-save" id="saveApiKeyBtn">Simpan</button>
+      <a class="modal-link" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Dapatkan API Key dari Google AI Studio</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
